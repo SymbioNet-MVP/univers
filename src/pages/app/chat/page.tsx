@@ -14,9 +14,9 @@ export default function ChatPage() {
   const active = conversations.find((conversation) => conversation.id === conversationId) ?? null;
 
   return (
-    <div className="space-y-5">
-      <header>
-        <h1 className="font-heading text-2xl font-semibold text-foreground-950">{t('chat.title')}</h1>
+    <div className="mx-auto max-w-5xl space-y-4 sm:space-y-5">
+      <header className={conversationId ? 'hidden lg:block' : 'block'}>
+        <h1 className="text-2xl font-bold tracking-tight text-foreground-950">{t('chat.title')}</h1>
       </header>
 
       {error ? (
@@ -32,7 +32,7 @@ export default function ChatPage() {
           </button>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-lg border border-background-200 bg-background-50 lg:grid lg:grid-cols-[320px_1fr] lg:gap-0">
+        <div className="ui-card -mx-3 overflow-hidden sm:mx-0 lg:grid lg:grid-cols-[340px_1fr] lg:gap-0">
           <aside
             className={`border-background-200 lg:block lg:border-r ${
               conversationId ? 'hidden' : 'block'
@@ -49,13 +49,13 @@ export default function ChatPage() {
             )}
           </aside>
 
-          <section className={`h-[60vh] lg:h-[620px] ${conversationId ? 'block' : 'hidden lg:block'}`}>
+          <section className={`h-[calc(100dvh-9.25rem)] min-h-[480px] lg:h-[680px] ${conversationId ? 'block' : 'hidden lg:block'}`}>
             {active ? (
               <>
                 <div className="border-b border-background-200 px-3 py-2 lg:hidden">
                   <Link
                     to="/app/chat"
-                    className="inline-flex cursor-pointer items-center gap-1 text-sm font-medium text-foreground-600"
+                    className="inline-flex cursor-pointer items-center gap-1 rounded-full px-2 py-1 text-sm font-semibold text-primary-600 hover:bg-primary-50"
                   >
                     <i className="ri-arrow-left-line"></i>
                     {t('common.back')}
