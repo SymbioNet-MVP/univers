@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Typography roles */
+  --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-label: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* background — warm off-white */
+  --background-50: 0.985 0.004 95;
+  --background-100: 0.965 0.006 95;
+  --background-200: 0.930 0.008 92;
+  --background-300: 0.880 0.010 88;
+  --background-400: 0.800 0.012 84;
+  --background-500: 0.700 0.014 82;
+  --background-600: 0.580 0.014 80;
+  --background-700: 0.470 0.013 78;
+  --background-800: 0.360 0.012 76;
+  --background-900: 0.270 0.011 74;
+  --background-950: 0.180 0.010 72;
+
+  /* foreground — warm dark neutral */
+  --foreground-50: 0.960 0.004 85;
+  --foreground-100: 0.920 0.005 84;
+  --foreground-200: 0.850 0.006 82;
+  --foreground-300: 0.750 0.008 80;
+  --foreground-400: 0.630 0.009 78;
+  --foreground-500: 0.520 0.010 76;
+  --foreground-600: 0.430 0.011 74;
+  --foreground-700: 0.350 0.012 72;
+  --foreground-800: 0.280 0.012 70;
+  --foreground-900: 0.220 0.012 68;
+  --foreground-950: 0.160 0.012 66;
+
+  /* primary — deep spruce green */
+  --primary-50: 0.960 0.020 160;
+  --primary-100: 0.920 0.040 160;
+  --primary-200: 0.850 0.060 160;
+  --primary-300: 0.760 0.080 160;
+  --primary-400: 0.620 0.090 160;
+  --primary-500: 0.470 0.085 161;
+  --primary-600: 0.400 0.075 162;
+  --primary-700: 0.340 0.062 163;
+  --primary-800: 0.280 0.050 164;
+  --primary-900: 0.230 0.040 165;
+  --primary-950: 0.170 0.030 166;
+
+  /* accent — warm honey / amber */
+  --accent-50: 0.970 0.020 80;
+  --accent-100: 0.940 0.045 82;
+  --accent-200: 0.890 0.080 82;
+  --accent-300: 0.830 0.115 80;
+  --accent-400: 0.770 0.140 74;
+  --accent-500: 0.700 0.150 68;
+  --accent-600: 0.620 0.140 62;
+  --accent-700: 0.520 0.120 58;
+  --accent-800: 0.420 0.100 55;
+  --accent-900: 0.330 0.080 52;
+  --accent-950: 0.240 0.060 50;
+
+  /* secondary — warm stone / taupe */
+  --secondary-50: 0.970 0.006 85;
+  --secondary-100: 0.940 0.008 84;
+  --secondary-200: 0.890 0.010 82;
+  --secondary-300: 0.830 0.012 80;
+  --secondary-400: 0.720 0.014 78;
+  --secondary-500: 0.620 0.015 76;
+  --secondary-600: 0.520 0.016 74;
+  --secondary-700: 0.430 0.015 72;
+  --secondary-800: 0.340 0.014 70;
+  --secondary-900: 0.260 0.013 68;
+  --secondary-950: 0.180 0.012 66;
+}
+
+.dark {
+  --background-50: 0.180 0.008 75;
+  --background-100: 0.220 0.009 75;
+  --background-200: 0.270 0.010 74;
+  --background-300: 0.340 0.011 74;
+  --background-400: 0.440 0.012 74;
+  --background-500: 0.560 0.013 74;
+  --background-600: 0.670 0.013 74;
+  --background-700: 0.780 0.012 74;
+  --background-800: 0.880 0.010 74;
+  --background-900: 0.940 0.008 74;
+  --background-950: 0.980 0.005 74;
+
+  --foreground-50: 0.160 0.012 66;
+  --foreground-100: 0.220 0.012 68;
+  --foreground-200: 0.280 0.012 70;
+  --foreground-300: 0.350 0.012 72;
+  --foreground-400: 0.430 0.011 74;
+  --foreground-500: 0.520 0.010 76;
+  --foreground-600: 0.630 0.009 78;
+  --foreground-700: 0.750 0.008 80;
+  --foreground-800: 0.850 0.006 82;
+  --foreground-900: 0.920 0.005 84;
+  --foreground-950: 0.960 0.004 85;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: oklch(var(--background-50));
+    color: oklch(var(--foreground-950));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+}
+
+/* Anti-spam honeypot: hidden via stylesheet (not inline / not utility) */
+.website-alt-field,
+.contact-alt-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*
+ * Dark mode consistency.
+ * The background scale is also used as "inverse text" (light text on dark or
+ * saturated surfaces). When the theme flips, those steps become dark, so we
+ * keep every such text token readable by mapping it back to the foreground
+ * scale. This fixes buttons, dark marketing sections and nested labels at once.
+ */
+.dark .text-background-50,
+.dark .text-background-100,
+.dark .text-background-200 {
+  color: oklch(var(--foreground-950));
+}
+
+.dark .text-background-100\/70 {
+  color: oklch(var(--foreground-950) / 0.7);
+}
+.dark .text-background-200\/70 {
+  color: oklch(var(--foreground-950) / 0.7);
+}
+.dark .text-background-200\/80 {
+  color: oklch(var(--foreground-950) / 0.8);
+}
+.dark .text-background-200\/85 {
+  color: oklch(var(--foreground-950) / 0.85);
+}
+.dark .text-background-200\/90 {
+  color: oklch(var(--foreground-950) / 0.9);
+}
+.dark .text-background-300 {
+  color: oklch(var(--foreground-600));
+}
+.dark .hover\:text-background-50:hover {
+  color: oklch(var(--foreground-950));
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+.animate-float-soft {
+  animation: floatSoft 6s ease-in-out infinite;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-500 { animation-delay: 0.5s; }

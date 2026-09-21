@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /app
+Disallow: /onboarding
+
+Sitemap: https://getunivers.readdy.co/sitemap.xml
