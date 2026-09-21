@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://getunivers.readdy.co/en</loc>
+    <image:image>
+      <image:loc>https://public.readdy.ai/ai/img_res/edited_44cb4046040c68b8b0c892220f314fa7_afdf7237.jpg</image:loc>
+      <image:title>Learners studying together on UniverS</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://getunivers.readdy.co/de</loc>
+    <image:image>
+      <image:loc>https://public.readdy.ai/ai/img_res/edited_44cb4046040c68b8b0c892220f314fa7_afdf7237.jpg</image:loc>
+      <image:title>Lernende lernen gemeinsam auf UniverS</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://getunivers.readdy.co/login</loc>
+  </url>
+  <url>
+    <loc>https://getunivers.readdy.co/signup</loc>
+  </url>
+  <url>
+    <loc>https://getunivers.readdy.co/imprint</loc>
+  </url>
+  <url>
+    <loc>https://getunivers.readdy.co/privacy</loc>
+  </url>
+</urlset>
