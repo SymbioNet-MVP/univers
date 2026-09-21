@@ -1,0 +1,6 @@
+node_modules/
+out/
+auto-imports.d.ts
+.env
+.env.*
+!.env.example

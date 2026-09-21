@@ -1,6 +1,5 @@
 import type { RouteObject } from 'react-router-dom';
 import NotFound from '@/pages/NotFound';
-import Home from '@/pages/home/page';
 import LandingRedirect from '@/pages/home/LandingRedirect';
 import LocalizedLanding from '@/pages/home/LocalizedLanding';
 import AuthPage from '@/pages/auth/page';

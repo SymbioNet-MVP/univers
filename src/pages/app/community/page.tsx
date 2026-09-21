@@ -12,22 +12,23 @@ export default function CommunityPage() {
   const [composing, setComposing] = useState(false);
 
   return (
-    <div className="space-y-6">
-      <header className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+    <div className="mx-auto max-w-2xl space-y-5 sm:space-y-6">
+      <header className="flex items-center justify-between gap-3 px-1">
         <div>
-          <h1 className="font-heading text-2xl font-semibold text-foreground-950">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground-950">
             {t('community.title')}
           </h1>
-          <p className="mt-1.5 max-w-2xl text-sm text-foreground-600">{t('community.subtitle')}</p>
+          <p className="mt-1 hidden max-w-xl text-sm text-foreground-600 sm:block">{t('community.subtitle')}</p>
         </div>
         {!composing && (
           <button
             type="button"
             onClick={() => setComposing(true)}
-            className="inline-flex shrink-0 cursor-pointer items-center gap-2 whitespace-nowrap rounded-md bg-primary-500 px-4 py-2.5 text-sm font-medium text-background-50 hover:bg-primary-600"
+            aria-label={t('community.newPost')}
+            className="ui-primary-button h-10 shrink-0 cursor-pointer gap-2 whitespace-nowrap px-4 text-sm"
           >
             <i className="ri-add-line"></i>
-            {t('community.newPost')}
+            <span className="hidden sm:inline">{t('community.newPost')}</span>
           </button>
         )}
       </header>
@@ -45,12 +46,12 @@ export default function CommunityPage() {
       )}
 
       {!loading && error && (
-        <div className="rounded-lg border border-background-200 bg-background-50 py-12 text-center">
+        <div className="ui-card py-12 text-center">
           <p className="text-sm text-foreground-600">{t('common.error')}</p>
           <button
             type="button"
             onClick={() => void reload()}
-            className="mt-3 inline-flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-md bg-primary-500 px-4 py-2 text-sm font-medium text-background-50 hover:bg-primary-600"
+            className="ui-primary-button mt-3 cursor-pointer gap-2 whitespace-nowrap px-4 py-2 text-sm"
           >
             <i className="ri-refresh-line"></i>
             {t('common.retry')}
@@ -63,7 +64,7 @@ export default function CommunityPage() {
       )}
 
       {!loading && !error && posts.length > 0 && (
-        <div className="space-y-4">
+        <div className="space-y-4 sm:space-y-5">
           {posts.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}

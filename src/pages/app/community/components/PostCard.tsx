@@ -23,43 +23,50 @@ export default function PostCard({ post }: { post: PostWithAuthor }) {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <article className="rounded-lg border border-background-200 bg-background-50 p-4 md:p-5">
-      <div className="flex items-start gap-3">
-        <Avatar name={post.author?.full_name} url={post.author?.avatar_url} size={40} />
+    <article className="ui-card -mx-3 overflow-hidden sm:mx-0">
+      <div className="flex items-center gap-3 px-4 py-3.5 sm:px-5">
+        <Avatar name={post.author?.full_name} url={post.author?.avatar_url} size={42} className="ring-2 ring-background-100" />
         <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-medium text-foreground-950">
+          <div className="flex min-w-0 items-center gap-2">
+            <span className="truncate text-sm font-semibold text-foreground-950">
               {post.author?.full_name || t('common.none')}
             </span>
             <span
-              className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${
+              className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${
                 TYPE_STYLE[post.type] || 'bg-background-200 text-foreground-700'
               }`}
             >
               {t(`community.types.${TYPE_KEY[post.type]}`)}
             </span>
-            {post.field && (
-              <span className="text-[11px] text-foreground-500">· {post.field}</span>
-            )}
           </div>
-          <p className="mt-0.5 text-[11px] text-foreground-400">
-            {new Date(post.created_at).toLocaleDateString()}
+          <p className="mt-0.5 truncate text-[11px] text-foreground-500">
+            {post.field && <span>{post.field} · </span>}
+            {new Date(post.created_at).toLocaleDateString(undefined, {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            })}
           </p>
         </div>
       </div>
 
-      <h3 className="mt-3 font-heading text-base font-semibold text-foreground-950">{post.title}</h3>
-      <p className="mt-1 whitespace-pre-wrap text-sm text-foreground-700">{post.body}</p>
+      <div className="border-y border-background-200 bg-background-50 px-4 py-5 sm:px-5 sm:py-6">
+        <h3 className="text-[17px] font-bold leading-snug tracking-tight text-foreground-950">{post.title}</h3>
+        <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-foreground-700">{post.body}</p>
+      </div>
 
-      <button
-        type="button"
-        onClick={() => setExpanded((value) => !value)}
-        className="mt-3 inline-flex cursor-pointer items-center gap-1.5 whitespace-nowrap text-sm font-medium text-primary-600 hover:text-primary-700"
-      >
-        <i className={expanded ? 'ri-chat-3-fill' : 'ri-chat-3-line'}></i>
-        {t('community.comments')}
-        <i className={expanded ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'}></i>
-      </button>
+      <div className="px-3 py-2 sm:px-4">
+        <button
+          type="button"
+          onClick={() => setExpanded((value) => !value)}
+          aria-expanded={expanded}
+          className="inline-flex min-h-10 cursor-pointer items-center gap-2 rounded-full px-2 text-sm font-semibold text-foreground-800 transition-colors hover:bg-background-100 hover:text-foreground-950"
+        >
+          <i className={`${expanded ? 'ri-chat-3-fill text-primary-500' : 'ri-chat-3-line'} text-xl`}></i>
+          {t('community.comments')}
+          <i className={expanded ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'}></i>
+        </button>
+      </div>
 
       {expanded && <PostComments postId={post.id} />}
     </article>

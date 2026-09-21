@@ -19,7 +19,7 @@ export default function Avatar({ name, url, size = 40, className = '' }: AvatarP
       <img
         src={url}
         alt={name || 'User'}
-        className={`rounded-full object-cover ${className}`}
+        className={`shrink-0 rounded-full border border-background-200 bg-background-100 object-cover shadow-sm ${className}`}
         style={{ width: size, height: size }}
       />
     );
@@ -27,7 +27,7 @@ export default function Avatar({ name, url, size = 40, className = '' }: AvatarP
 
   return (
     <span
-      className={`rounded-full bg-primary-100 text-primary-700 flex items-center justify-center font-medium ${className}`}
+      className={`flex shrink-0 items-center justify-center rounded-full border border-primary-200 bg-primary-100 font-semibold text-primary-700 shadow-sm ${className}`}
       style={{ width: size, height: size, fontSize: Math.round(size * 0.4) }}
     >
       {initials || '?'}
